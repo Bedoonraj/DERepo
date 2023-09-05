@@ -1,0 +1,37 @@
+<html>
+<head>
+<link rel="stylesheet" type= "text/css" href="../static/css/style.css"/>
+<title>CinematicLust</title>
+</head>
+<body>
+
+<h1>CinematicLust</h1>
+<p>This is a preview version of CinematicLust page. We will provides users movie recommendations. Please test your intrests below</p>
+<h2>Register My Favorite Movies</h2>
+<form action="http://127.0.0.1:5000" method="GET">
+<label for="username">User Name</label>
+<br>
+<input type="text" id ="username" name="username" value=""><br><br>
+<label for="favoritemovie">Choose favorite Movie</label>
+<br>
+<div>
+  <datalist id="favoritemovie">
+    {% for movie in movies %}
+      <option>{{ movie }}</option>
+      {% endfor %}
+  </datalist>
+  <input name="favoritemovie" autoComplete="on" list="favoritemovie"/> 
+</div>
+<br>
+<label for="rating">Rate your movie</label>
+<br>
+<select name="rating_val" id="rating">
+  {% for rat in rating %}
+  <option  value="{{rat}}">{{rat}}</option>
+  {% endfor %}
+</select>
+<br><br>
+<input type="submit" value="add">
+</form>
+</body>
+<html>
